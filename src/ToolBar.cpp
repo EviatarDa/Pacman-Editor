@@ -19,7 +19,10 @@ void ToolBar::init()
 	m_outline.setFillColor(sf::Color::White);
 
 	//init button:
-	m_botton[0]->init();
+	for (int button = 0; button < 7; ++button)
+	{
+		m_botton[button]->init();
+	}
 }
 
 sf::RectangleShape ToolBar::getToolBar()
@@ -27,12 +30,13 @@ sf::RectangleShape ToolBar::getToolBar()
 	return m_outline;
 }
 
-sf::RectangleShape ToolBar::getButton()
+sf::RectangleShape ToolBar::getButton(int button)
 {
-	return m_botton[0]->GetRec();
+
+	return m_botton[button]->GetRec();
 }
 
-char ToolBar::GetButtonChar()
+char ToolBar::GetButtonChar(int button)
 {
-	return m_botton[0]->GetChar();
+	return m_botton[button]->GetChar();
 }

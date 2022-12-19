@@ -52,9 +52,21 @@ void Board::init()
 	InitTextures();
 }
 
+
+
 void Board::InitTextures()
 {
 	m_textures[WALL].loadFromFile("wall.jpg");
+	m_textures[DOOR].loadFromFile("door.png");
+	m_textures[DEAMON].loadFromFile("deamon.png");
+	m_textures[PACMAN].loadFromFile("pacman.png");
+	m_textures[COOKIE].loadFromFile("cookie.png");
+	m_textures[PRESENT].loadFromFile("present.png");
+	m_textures[KEY].loadFromFile("key.png");
+	//m_textures[ERASE].loadFromFile("erase.png");
+	//m_textures[RESET].loadFromFile("reset.png");
+	//m_textures[SAVE].loadFromFile("save.jpg");
+	
 
 }
 

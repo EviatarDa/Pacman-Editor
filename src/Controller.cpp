@@ -63,6 +63,12 @@ void Controller::DrawBoard()
                     m_window.draw(m_board.GetRec(row, col));
                     break;
                 }
+                case 'D':
+                {
+                    m_board.SetRec(row, col, DOOR);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
                 case ' ':
                     m_window.draw(m_board.GetRec(row, col));
                     break;
@@ -76,16 +82,26 @@ void Controller::DrawBoard()
 }
 
 void Controller::DrawToolBar()
+
 {
     m_window.draw(m_ToolBar.getToolBar());
-    m_window.draw(m_ToolBar.getButton());
+    for (int button = 0; button < 7; ++button)
+    { 
+        m_window.draw(m_ToolBar.getButton(button));
+    }
 }
 
-void Controller::handleClick(const sf::Vector2f& location, char &type)
+void Controller::handleClick(const sf::Vector2f& location, char& type)
 {
-    if (m_ToolBar.getButton().getGlobalBounds().contains(location))
+    if (m_ToolBar.getToolBar().getGlobalBounds().contains(location))
     {
-        type = m_ToolBar.GetButtonChar();
+        for (int button = 0; button < 7; ++button)
+        {
+            if (m_ToolBar.getButton(button).getGlobalBounds().contains(location))
+            {
+                type = m_ToolBar.GetButtonChar(button);
+            }
+        }
     }
     else
     {
@@ -96,6 +112,7 @@ void Controller::handleClick(const sf::Vector2f& location, char &type)
                 if (m_board.GetRec(row, col).getGlobalBounds().contains(location))
                 {
                     m_matrix[row][col] = type;
+                    std::cout << m_matrix[row][col];
                     return;
                 }
             }

@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-enum texture { WALL = 0, DOOR, DEAMON, PAMAN, COOCKIE, PRESENT, KEY, ERASE, CLEAR, SAVE };
+enum texture { WALL = 0, DOOR, DEAMON, PACMAN, COOKIE, PRESENT, KEY, ERASE, RESET, SAVE };
 
 class Board
 {
