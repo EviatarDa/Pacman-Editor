@@ -15,6 +15,7 @@ public:
     void init();
     sf::RectangleShape CreateRectangle(int, int);
     sf::RectangleShape GetRec(int,int);
+    void FillTexture(const char&, int, int);
 
 private:
     std::vector<std::vector<sf::RectangleShape>> m_RectangleMatrix;

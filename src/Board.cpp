@@ -70,3 +70,16 @@ sf::RectangleShape Board::GetRec(int row, int col)
 	return m_RectangleMatrix[row][col];
 }
 
+void Board::FillTexture(const char &type, int row, int col)
+{
+	switch (type)
+	{
+	case '#':
+	{
+		//m_picture.loadFromFile("digger.png");
+		//m_RectangleMatrix[row][col].setTexture();
+	}
+	}
+	//m_RectangleMatrix[row][col].setTexture();
+}
+

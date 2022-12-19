@@ -18,9 +18,22 @@ void ToolBar::init()
 	m_outline.setOutlineColor(sf::Color::Blue);
 	m_outline.setOutlineThickness(2.f);
 	m_outline.setFillColor(sf::Color::White);
+
+	//init button:
+	m_botton.init();
 }
 
 sf::RectangleShape ToolBar::getToolBar()
 {
 	return m_outline;
+}
+
+sf::RectangleShape ToolBar::getButton()
+{
+	return m_botton.GetRec();
+}
+
+char ToolBar::GetButtonChar()
+{
+	return m_botton.GetChar();
 }

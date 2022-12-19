@@ -14,6 +14,9 @@ public:
     void init();
     void DrawBoard();
     void DrawToolBar();
+    void handleClick(const sf::Vector2f &location, char&);
+
+
 
 
 
@@ -21,11 +24,12 @@ private:
 
     //members
     sf::RenderWindow m_window;
-    std::vector< std::vector <GameObjects*> > m_matrix;
+    std::vector< std::vector <char> > m_matrix;
     Board m_board;
     ToolBar m_ToolBar;
 
     //functions
 
     void Draw();
+    void InitMatrix();
 };

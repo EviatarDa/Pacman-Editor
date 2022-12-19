@@ -11,6 +11,7 @@ Controller::Controller()
 void Controller::run()
 {
     init();
+    char type = 0;
     while (m_window.isOpen())
     {
             m_window.clear();
@@ -25,8 +26,12 @@ void Controller::run()
                     m_window.close();
                     break;
                 case sf::Event::MouseButtonReleased:
-                   // handleClick(event.mouseButton);
+                {
+                    auto location = m_window.mapPixelToCoords(
+                        { event.mouseButton.x, event.mouseButton.y });
+                    handleClick(location, type);
                     break;
+                }
                 }
             }
     }
@@ -40,7 +45,7 @@ void Controller::init()
     m_window.setSize(sf::Vector2u(1200,900));
     m_ToolBar.SetSize(200, 900);
     m_ToolBar.init();
-    //m_matrix להוסיף
+    InitMatrix();
 }
 
 void Controller::DrawBoard()
@@ -49,7 +54,23 @@ void Controller::DrawBoard()
     {
         for (int col = 0; col < m_board.GetCol(); ++col)
         {
-            m_window.draw(m_board.GetRec(row,col));
+            char type = m_matrix[row][col];
+            switch (type)
+            {
+            case '#':
+            {
+              //  m_window.draw(m_board.GetRec(row, col));
+
+                break;
+            }
+            case ' ':
+                m_window.draw(m_board.GetRec(row, col));
+                break;
+
+            default:
+                m_window.draw(m_board.GetRec(row, col));
+                break;
+            }
         }
     }
 }
@@ -57,10 +78,48 @@ void Controller::DrawBoard()
 void Controller::DrawToolBar()
 {
     m_window.draw(m_ToolBar.getToolBar());
+    m_window.draw(m_ToolBar.getButton());
 }
+
+void Controller::handleClick(const sf::Vector2f& location, char &type)
+{
+    if (m_ToolBar.getButton().getGlobalBounds().contains(location))
+    {
+        type = m_ToolBar.GetButtonChar();
+    }
+    else
+    {
+        for (int row = 0; row < m_board.GetRow(); ++row)
+        {
+            for (int col = 0; col < m_board.GetCol(); ++col)
+            {
+                if (m_board.GetRec(row, col).getGlobalBounds().contains(location))
+                {
+                    m_matrix[row][col] = type;
+                    return;
+                }
+            }
+        }
+    }
+
+}
+
 
 void Controller::Draw()
 {
     DrawBoard();
     DrawToolBar();
+}
+
+void Controller::InitMatrix()
+{
+    for (int row = 0; row < m_board.GetRow(); ++row)
+    {
+        std::vector < char > vector_row;
+        for (int col = 0; col < m_board.GetCol(); ++col)
+        {
+            vector_row.push_back(' ');
+        }
+        m_matrix.push_back(vector_row);
+    }
 }
