@@ -27,7 +27,6 @@ private:
     std::vector< std::vector <char> > m_matrix;
     Board m_board;
     ToolBar m_ToolBar;
-
     //functions
 
     void Draw();

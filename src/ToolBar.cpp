@@ -9,7 +9,6 @@ void ToolBar::SetSize(int row, int col)
 
 void ToolBar::init()
 {
-	std::cout << "row: " << m_col << " " << "col: " << m_row;
 	//position
 	m_outline.setSize(sf::Vector2(m_row, m_col));
 	m_outline.setPosition(1000, 0);
@@ -20,7 +19,7 @@ void ToolBar::init()
 	m_outline.setFillColor(sf::Color::White);
 
 	//init button:
-	m_botton.init();
+	m_botton[0]->init();
 }
 
 sf::RectangleShape ToolBar::getToolBar()
@@ -30,10 +29,10 @@ sf::RectangleShape ToolBar::getToolBar()
 
 sf::RectangleShape ToolBar::getButton()
 {
-	return m_botton.GetRec();
+	return m_botton[0]->GetRec();
 }
 
 char ToolBar::GetButtonChar()
 {
-	return m_botton.GetChar();
+	return m_botton[0]->GetChar();
 }

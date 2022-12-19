@@ -57,19 +57,19 @@ void Controller::DrawBoard()
             char type = m_matrix[row][col];
             switch (type)
             {
-            case '#':
-            {
-              //  m_window.draw(m_board.GetRec(row, col));
+                case '#':
+                {
+                    m_board.SetRec(row, col, WALL);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+                case ' ':
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
 
-                break;
-            }
-            case ' ':
-                m_window.draw(m_board.GetRec(row, col));
-                break;
-
-            default:
-                m_window.draw(m_board.GetRec(row, col));
-                break;
+                default:
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
             }
         }
     }

@@ -22,8 +22,10 @@ void Board::Display()
 
 void Board::SetSize()
 {
-	std::cout << "please enter col and row: ";
-	std::cin >> m_col >> m_row;
+	m_col = 10;
+	m_row = 10;
+	//std::cout << "please enter col and row: ";
+	//std::cin >> m_col >> m_row;
 }
 
 int Board::GetRow()
@@ -47,6 +49,13 @@ void Board::init()
 		}
 		m_RectangleMatrix.push_back(vector_row);
 	}
+	InitTextures();
+}
+
+void Board::InitTextures()
+{
+	m_textures[WALL].loadFromFile("wall.jpg");
+
 }
 
 sf::RectangleShape Board::CreateRectangle(int row, int col)
@@ -70,16 +79,8 @@ sf::RectangleShape Board::GetRec(int row, int col)
 	return m_RectangleMatrix[row][col];
 }
 
-void Board::FillTexture(const char &type, int row, int col)
+void Board::SetRec(int row, int col, enum texture type)
 {
-	switch (type)
-	{
-	case '#':
-	{
-		//m_picture.loadFromFile("digger.png");
-		//m_RectangleMatrix[row][col].setTexture();
-	}
-	}
-	//m_RectangleMatrix[row][col].setTexture();
+	m_RectangleMatrix[row][col].setTexture(&m_textures[type]);
 }
 

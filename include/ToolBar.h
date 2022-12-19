@@ -19,5 +19,7 @@ public:
 private:
     float m_col, m_row;
     sf::RectangleShape m_outline;
-    Button m_botton;
+    Wall m_wall;
+
+    Button* m_botton[1] = { &m_wall };
 };
