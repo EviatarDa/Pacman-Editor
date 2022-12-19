@@ -38,11 +38,31 @@ int Board::GetCol()
 
 void Board::init()
 {
-	m_RectangleMatrix.resize(m_row);
-	for (int col = 0; col < m_row; ++col)
+	for (int row = 0; row < m_row; ++row)
 	{
-		m_RectangleMatrix[col].resize(m_row);
+		std::vector < sf::RectangleShape > vector_row;
+		for (int col = 0; col < m_col; ++col)
+		{
+			vector_row.push_back(CreateRectangle(row,col));
+		}
+		m_RectangleMatrix.push_back(vector_row);
 	}
+}
+
+sf::RectangleShape Board::CreateRectangle(int row, int col)
+{
+	sf::RectangleShape rec;
+
+	//Position
+	rec.setSize(sf::Vector2(50.f, 50.f));
+	rec.setPosition((float)(row * 50.f), (float)(col * 50.f));
+
+	//Style
+	rec.setOutlineColor(sf::Color::Blue);
+	rec.setOutlineThickness(2.f);
+	rec.setFillColor(sf::Color::White);
+
+	return rec;
 }
 
 sf::RectangleShape Board::GetRec(int row, int col)

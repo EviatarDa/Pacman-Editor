@@ -7,7 +7,11 @@ class ToolBar
 {
 public:
     void SetSize(int, int);
+    void init();
+    sf::RectangleShape getToolBar();
+
 
 private:
-    int m_row, m_col;
+    float m_col, m_row;
+    sf::RectangleShape m_outline;
 };

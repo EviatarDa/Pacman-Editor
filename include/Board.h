@@ -13,6 +13,7 @@ public:
     int GetRow();
     int GetCol();
     void init();
+    sf::RectangleShape CreateRectangle(int, int);
     sf::RectangleShape GetRec(int,int);
 
 private:
