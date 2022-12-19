@@ -69,6 +69,37 @@ void Controller::DrawBoard()
                     m_window.draw(m_board.GetRec(row, col));
                     break;
                 }
+                case '&':
+                {
+                    m_board.SetRec(row, col, DEAMON);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+                case 'a':
+                {
+                    m_board.SetRec(row, col, PACMAN);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+                case '*':
+                {
+                    m_board.SetRec(row, col, COOKIE);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+                case '$':
+                {
+                    m_board.SetRec(row, col, PRESENT);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+                case '%':
+                {
+                    m_board.SetRec(row, col, KEY);
+                    m_window.draw(m_board.GetRec(row, col));
+                    break;
+                }
+
                 case ' ':
                     m_window.draw(m_board.GetRec(row, col));
                     break;
