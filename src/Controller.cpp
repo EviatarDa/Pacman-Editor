@@ -72,7 +72,7 @@ void Controller::run()
 
 void Controller::init()
 {
-    if (m_ifile.is_open())
+    if (!m_ifile.fail())
     {
         int col, row;
         m_ifile >> row >> col;
@@ -205,7 +205,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool &pre
     if (m_ToolBar.getButton(RESET).getGlobalBounds().contains(location))
     {
         reset();
-        std::cout << "hii";
+        std::cout << "hii";//////////////////////////////////////////////////////////////////////
         return;
     }
     else if (m_ToolBar.getButton(SAVE).getGlobalBounds().contains(location))
@@ -256,22 +256,23 @@ void Controller::reset()
 void Controller::InitWithGivenMatrix()
 {
     m_ifile.get(); // for \n
+    char c;
     for (int row = 0; row < m_board.GetRow(); ++row)
     {
-        std::vector < char > vector_row;
+        std::string row_string;
+        std::getline(m_ifile, row_string);
+        std::vector <char> row_vector;
         for (int col = 0; col < m_board.GetCol(); ++col)
         {
-            char c;
-            m_ifile >> c;
-            vector_row.push_back(' ');
+            row_vector.push_back(row_string[col]);
         }
-        m_matrix.push_back(vector_row);
+        m_matrix.push_back(row_vector);
     }
 }
 
 void Controller::CreateFile()
 {
-    m_ofile.open("board.txt");
+    m_ofile.open("Board.txt");
     m_ofile << m_board.GetRow() << " " << m_board.GetCol() << '\n';
     for (int row = 0; row < m_board.GetRow(); ++row)
     {
