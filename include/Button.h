@@ -58,8 +58,6 @@ private:
 };
 
 
-//enum texture { WALL = 0, DOOR, DEAMON, PAMAN, COOCKIE, PRESENT, KEY, ERASE, RESET, SAVE };
-
 class Pacman : public Button
 {
 public:
@@ -117,4 +115,50 @@ private:
 	sf::Texture m_texture;
 };
 
-//--------
+//-------------------------------------------
+
+class erase : public Button
+{
+public:
+	void init();
+	sf::RectangleShape GetRec();
+	char GetChar();
+
+private:
+	sf::RectangleShape m_rec;
+	char m_type = ' ';
+	sf::Texture m_texture;
+};
+
+
+//-------------------------------------------
+
+class Reset : public Button
+{
+public:
+	void init();
+	sf::RectangleShape GetRec();
+	char GetChar();
+
+private:
+	sf::RectangleShape m_rec;
+	char m_type = ' ';
+	sf::Texture m_texture;
+};
+
+
+//-------------------------------------------
+
+class Save : public Button
+{
+public:
+	void init();
+	sf::RectangleShape GetRec();
+	char GetChar();
+
+private:
+	sf::RectangleShape m_rec;
+	char m_type = ' ';
+	sf::Texture m_texture;
+};
+

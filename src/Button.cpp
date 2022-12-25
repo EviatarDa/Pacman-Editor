@@ -7,10 +7,10 @@
 
 void Wall::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("wall.jpg");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 10));
+	m_rec.setPosition(sf::Vector2f(1065, 10));
 }
 
 sf::RectangleShape Wall::GetRec()
@@ -25,10 +25,10 @@ char Wall::GetChar()
 
 void Door::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("door.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 70));
+	m_rec.setPosition(sf::Vector2f(1065, 90));
 }
 
 sf::RectangleShape Door::GetRec()
@@ -47,10 +47,10 @@ char Door::GetChar()
 
 void Deamon::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("deamon.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 130));
+	m_rec.setPosition(sf::Vector2f(1065, 170));
 }
 
 sf::RectangleShape Deamon::GetRec()
@@ -67,10 +67,10 @@ char Deamon::GetChar()
 
 void Pacman::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("pacman.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 190));
+	m_rec.setPosition(sf::Vector2f(1065, 250));
 }
 
 sf::RectangleShape Pacman::GetRec()
@@ -88,10 +88,10 @@ char Pacman::GetChar()
 
 void Cookie::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("cookie.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 250));
+	m_rec.setPosition(sf::Vector2f(1065, 330));
 }
 
 sf::RectangleShape Cookie::GetRec()
@@ -109,10 +109,10 @@ char Cookie::GetChar()
 
 void Present::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("present.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 310));
+	m_rec.setPosition(sf::Vector2f(1065, 410));
 }
 
 sf::RectangleShape Present::GetRec()
@@ -130,10 +130,10 @@ char Present::GetChar()
 
 void Key::init()
 {
-	m_rec.setSize(sf::Vector2f(50.f, 50.f));
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("key.png");
 	m_rec.setTexture(&m_texture);
-	m_rec.setPosition(sf::Vector2f(1000, 370));
+	m_rec.setPosition(sf::Vector2f(1065, 490));
 }
 
 sf::RectangleShape Key::GetRec()
@@ -146,5 +146,63 @@ char Key::GetChar()
 	return m_type;
 }
 
+//--------
+
+void erase::init()
+{
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
+	m_texture.loadFromFile("erase.png");
+	m_rec.setTexture(&m_texture);
+	m_rec.setPosition(sf::Vector2f(1065, 570));
+}
+
+sf::RectangleShape erase::GetRec()
+{
+	return m_rec;
+}
+
+char erase::GetChar()
+{
+	return m_type;
+}
 
 
+//*********************
+
+void Reset::init()
+{
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
+	m_texture.loadFromFile("reset.png");
+	m_rec.setTexture(&m_texture);
+	m_rec.setPosition(sf::Vector2f(1065, 650));
+}
+
+sf::RectangleShape Reset::GetRec()
+{
+	return m_rec;
+}
+
+char Reset::GetChar()
+{
+	return m_type;
+}
+
+//-----------------
+
+void Save::init()
+{
+	m_rec.setSize(sf::Vector2f(70.f, 70.f));
+	m_texture.loadFromFile("save.jpg");
+	m_rec.setTexture(&m_texture);
+	m_rec.setPosition(sf::Vector2f(1065, 730));
+}
+
+sf::RectangleShape Save::GetRec()
+{
+	return m_rec;
+}
+
+char Save::GetChar()
+{
+	return m_type;
+}

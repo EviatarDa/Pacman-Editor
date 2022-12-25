@@ -28,7 +28,13 @@ private:
     Cookie m_cookie;
     Present m_present;
     Key m_key;
+    erase m_erase;
+    Reset m_reset;
+    Save m_save;
+
 
    
-    Button* m_botton[7] = { &m_wall, &m_door, &m_deamon, &m_pacman,&m_cookie,&m_present, &m_key };
+    Button* m_botton[10] = { &m_wall, &m_door, &m_deamon, &m_pacman,&m_cookie,
+                            &m_present, &m_key, &m_erase, &m_reset, &m_save };
+
 };
