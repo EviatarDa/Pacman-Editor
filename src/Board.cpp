@@ -100,6 +100,7 @@ void Board::reset()
 	{
 		m_RectangleMatrix[row].clear();
 	}
+	m_RectangleMatrix.clear();
 	SetSize();
 	init();
 }

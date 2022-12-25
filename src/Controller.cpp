@@ -247,8 +247,9 @@ void Controller::reset()
 {
     for (int row = 0; row < m_board.GetRow(); ++row)
     {
-        m_matrix.clear();
+        m_matrix[row].clear();
     }
+    m_matrix.clear();
     m_board.reset();
     InitMatrix();
 }
