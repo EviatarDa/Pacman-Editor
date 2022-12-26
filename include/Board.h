@@ -20,6 +20,7 @@ public:
     sf::RectangleShape GetRec(int,int);
     void SetRec(int, int, enum texture);
     void reset();
+    sf::RectangleShape DrawReflection(int, int, int);
 
 
 

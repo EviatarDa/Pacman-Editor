@@ -24,11 +24,15 @@ void Controller::run()
     init();
     bool pressed = false;
     char type = 0;
+    bool reflection = false;
+    int row = 0, col = 0;
+
+
     while (m_window.isOpen())
     {
         m_window.clear(sf::Color::Color(255, 255, 230));// sf::Color::Color(204, 204, 255));
         m_window.draw(s1);
-        Draw();
+        Draw(reflection, row, col, type);
         m_window.display();
 
         if (auto event = sf::Event{}; m_window.waitEvent(event))
@@ -38,6 +42,7 @@ void Controller::run()
             case sf::Event::Closed:
                 m_window.close();
                 break;
+
             case sf::Event::MouseButtonReleased:
             {
                 auto location = m_window.mapPixelToCoords(
@@ -45,24 +50,16 @@ void Controller::run()
                 handleClick(location, type, pressed);
                 break;
             }   
-            //case sf::Event::MouseMoved:
-            //{
-            //    auto location = m_window.mapPixelToCoords(
-            //        { event.mouseButton.x, event.mouseButton.y });
-            //  //  std::cout << location.x << " " << location.y << std::endl;
-            //    if (pressed)
-            //    {
-            //        ////////
-            //        sf::RectangleShape rec;
-            //        rec.setSize(sf::Vector2(50.f, 50.f));
-            //        rec.setPosition(0, 0);//((float)((1000 - m_board.GetRow() * 50.f) / 2 + (location.x * 50.f)),
-            //                        //(float)((900 - m_board.GetCol() * 50.f) / 2 + (1 * 50.f)));
-            //        rec.setOutlineColor(sf::Color::Blue);
-            //        rec.setOutlineThickness(1.f);
-            //        rec.setFillColor(sf::Color::Blue);
-            //        m_window.draw(rec);
-            //    }
-            //}
+
+            case sf::Event::MouseMoved:
+            {
+                
+                if (pressed)
+                {
+                    handlereflction(reflection, row, col);
+                }
+                break;
+            }
 
             }
         }
@@ -175,11 +172,6 @@ void Controller::DrawBoard()
 
                 case ' ':
                     m_board.SetRec(row, col, ERASE);
-                    //
-                    //sf::RectangleShape rec = m_board.CreateRectangle(row, col);
-                    //rec.setFillColor(sf::Color::Color(255, 255, 230));
-                    //m_window.draw(rec);
-                    //
                     m_window.draw(m_board.GetRec(row, col));
                     break;
 
@@ -205,7 +197,6 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool &pre
     if (m_ToolBar.getButton(RESET).getGlobalBounds().contains(location))
     {
         reset();
-        std::cout << "hii";//////////////////////////////////////////////////////////////////////
         return;
     }
     else if (m_ToolBar.getButton(SAVE).getGlobalBounds().contains(location))
@@ -233,6 +224,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool &pre
             {
                 if (m_board.GetRec(row, col).getGlobalBounds().contains(location))
                 {
+                    
                     m_matrix[row][col] = type;
                     std::cout << m_matrix[row][col] << " row:" << row << " col:" << col << std::endl;
                     return;
@@ -240,7 +232,6 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool &pre
             }
         }
     }
-
 }
 
 void Controller::reset()
@@ -257,7 +248,7 @@ void Controller::reset()
 void Controller::InitWithGivenMatrix()
 {
     m_ifile.get(); // for \n
-    char c;
+    //char c;
     for (int row = 0; row < m_board.GetRow(); ++row)
     {
         std::string row_string;
@@ -285,11 +276,80 @@ void Controller::CreateFile()
     }
 }
 
+int Controller::ConvertT2Enum(char type)
+{
+    switch (type)
+    {
+    case '#':
+    {
+        return 0;
+        break;
+    }
+    case 'D':
+    {
+        return 1;
+        break;
+    }
+    case '&':
+    {
+        return 2;
+        break;
+    }
+    case 'a':
+    {
+        return 3;
+        break;
+    }
+    case '*':
+    {
+        return 4;
+        break;
+    }
+    case '$':
+    {
+        return 5;
+        break;
+    }
+    case '%':
+    {
+        return 6;
+        break;
+    }
+    }
+}
 
-void Controller::Draw()
+void Controller::handlereflction(bool &reflection, int &row, int &col)
+{
+    sf::Vector2f location = (sf::Vector2f)sf::Mouse::getPosition(m_window);
+    for (row = 0; row < m_board.GetRow(); ++row)
+    {
+        for (col = 0; col < m_board.GetCol(); ++col)
+        {
+            if (m_board.GetRec(row, col).getGlobalBounds().contains(location))
+            {
+                reflection = true;
+                return;
+            }
+        }
+    }
+}
+
+void Controller::DrawMouse(int row, int col, char type)
+{
+    int Etype = ConvertT2Enum(type);
+    m_window.draw(m_board.DrawReflection(row, col, Etype));
+}
+
+
+void Controller::Draw(bool &reflection, int row, int col, char type)
 {
     DrawBoard();
     DrawToolBar();
+    if (reflection)
+    {
+       DrawMouse(row, col, type);
+       reflection = false;
+    }
 }
 
 void Controller::InitMatrix()

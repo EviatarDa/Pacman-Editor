@@ -20,6 +20,9 @@ public:
     void reset();
     void InitWithGivenMatrix();
     void CreateFile();
+    int ConvertT2Enum(char);
+    void handlereflction(bool&, int&, int&);
+    void DrawMouse(int, int, char);
 
 private:
 
@@ -35,6 +38,6 @@ private:
 
     //functions
 
-    void Draw();
+    void Draw(bool&, int, int, char);
     void InitMatrix();
 };

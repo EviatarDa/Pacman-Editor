@@ -62,14 +62,11 @@ void Board::InitTextures()
 	m_textures[WALL].loadFromFile("wall.jpg");
 	m_textures[DOOR].loadFromFile("door.png");
 	m_textures[DEAMON].loadFromFile("deamon.png");
-	//m_textures[DEAMON].setSmooth(true);
 	m_textures[PACMAN].loadFromFile("pacman.png");
 	m_textures[COOKIE].loadFromFile("cookie.png");
 	m_textures[PRESENT].loadFromFile("present.png");
 	m_textures[KEY].loadFromFile("key.png");
-	//m_textures[ERASE].loadFromFile("erase.png");
-	//m_textures[RESET].loadFromFile("reset.png");
-	//m_textures[SAVE].loadFromFile("save.jpg");
+
 }
 
 sf::RectangleShape Board::CreateRectangle(int row, int col)
@@ -103,6 +100,25 @@ void Board::reset()
 	m_RectangleMatrix.clear();
 	SetSize();
 	init();
+}
+
+sf::RectangleShape Board::DrawReflection(int row, int col, int type)
+{
+	sf::RectangleShape rec;
+
+	//Position
+	rec.setSize(sf::Vector2(50.f, 50.f));
+	rec.setPosition((float)((1000 - m_row * 50.f) / 2 + (row * 50.f)),
+		(float)((900 - m_col * 50.f) / 2 + (col * 50.f)));
+
+	//Style
+	rec.setOutlineColor(sf::Color::Color(102, 102, 102));
+	rec.setOutlineThickness(0.f);
+	rec.setFillColor(sf::Color::Color(255, 255, 255, 100));
+	rec.setTexture(&m_textures[type]);
+
+	return rec;
+
 }
 
 void Board::SetRec(int row, int col, enum texture type)
