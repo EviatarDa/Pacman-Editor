@@ -8,19 +8,19 @@ enum texture { WALL = 0, DOOR, DEAMON, PACMAN, COOKIE, PRESENT, KEY, ERASE, RESE
 class Board
 {
 public:
-    ~Board();
+
     void SetSize();
-    int GetRow();
-    int GetCol();
-    void SetRow(int);
-    void SetCol(int);
+    const int GetRow();
+    const int GetCol();
+    void SetRow(const int);
+    void SetCol(const int);
     void init();
     void InitTextures();
-    sf::RectangleShape CreateRectangle(int, int);
-    sf::RectangleShape GetRec(int,int);
-    void SetRec(int, int, enum texture);
+    const sf::RectangleShape CreateRectangle(const int, const int) const ;
+    const sf::RectangleShape GetRec(const int, const int) const;
+    void SetRec(const int, const int, const enum texture);
     void reset();
-    sf::RectangleShape DrawReflection(int, int, int);
+    const sf::RectangleShape DrawReflection(const int, const int, const int);
 
 
 

@@ -176,6 +176,9 @@ void Controller::DrawBoard()
                     break;
 
                 default:
+                    sf::RectangleShape rec = m_board.CreateRectangle(row, col);
+                    rec.setFillColor(sf::Color::Color(255, 255, 230));
+                    m_window.draw(rec);
                     m_window.draw(m_board.GetRec(row, col));
                     break;
             }
@@ -226,7 +229,7 @@ void Controller::handleClick(const sf::Vector2f& location, char& type, bool &pre
                 {
                     
                     m_matrix[row][col] = type;
-                    std::cout << m_matrix[row][col] << " row:" << row << " col:" << col << std::endl;
+                  //  std::cout << m_matrix[row][col] << " row:" << row << " col:" << col << std::endl;
                     return;
                 }
             }
@@ -276,7 +279,7 @@ void Controller::CreateFile()
     }
 }
 
-int Controller::ConvertT2Enum(char type)
+const int Controller::ConvertT2Enum(const char type) const
 {
     switch (type)
     {
@@ -334,14 +337,14 @@ void Controller::handlereflction(bool &reflection, int &row, int &col)
     }
 }
 
-void Controller::DrawMouse(int row, int col, char type)
+void Controller::DrawMouse(const int row, const int col, const char type)
 {
     int Etype = ConvertT2Enum(type);
     m_window.draw(m_board.DrawReflection(row, col, Etype));
 }
 
 
-void Controller::Draw(bool &reflection, int row, int col, char type)
+void Controller::Draw(bool &reflection, const int row, const int col, const char type)
 {
     DrawBoard();
     DrawToolBar();

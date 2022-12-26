@@ -13,16 +13,7 @@ class Controller
 public:
     Controller();
     void run();
-    void init();
-    void DrawBoard();
-    void DrawToolBar();
-    void handleClick(const sf::Vector2f &location, char&, bool&);
-    void reset();
-    void InitWithGivenMatrix();
-    void CreateFile();
-    int ConvertT2Enum(char);
-    void handlereflction(bool&, int&, int&);
-    void DrawMouse(int, int, char);
+
 
 private:
 
@@ -37,7 +28,16 @@ private:
 
 
     //functions
-
-    void Draw(bool&, int, int, char);
+    void init();
+    void DrawBoard();
+    void DrawToolBar();
+    void handleClick(const sf::Vector2f& location, char&, bool&);
+    void reset();
+    void InitWithGivenMatrix();
+    void CreateFile();
+    const int ConvertT2Enum(const char) const;
+    void handlereflction(bool&, int&, int&);
+    void DrawMouse(const int, const int, const char);
+    void Draw(bool&, const int, const int, const char);
     void InitMatrix();
 };

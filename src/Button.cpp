@@ -13,12 +13,12 @@ void Wall::init()
 	m_rec.setPosition(sf::Vector2f(1065, 10));
 }
 
-sf::RectangleShape Wall::GetRec()
+const sf::RectangleShape Wall::GetRec()const
 {
 	return m_rec;
 }
 
-char Wall::GetChar()
+const char Wall::GetChar()const
 {
 	return m_type;
 }
@@ -31,12 +31,12 @@ void Door::init()
 	m_rec.setPosition(sf::Vector2f(1065, 90));
 }
 
-sf::RectangleShape Door::GetRec()
+const sf::RectangleShape Door::GetRec()const
 {
 	return m_rec;
 }
 
-char Door::GetChar()
+const char Door::GetChar()const
 {
 	return m_type;
 }
@@ -53,12 +53,12 @@ void Deamon::init()
 	m_rec.setPosition(sf::Vector2f(1065, 170));
 }
 
-sf::RectangleShape Deamon::GetRec()
+const sf::RectangleShape Deamon::GetRec()const
 {
 	return m_rec;
 }
 
-char Deamon::GetChar()
+const char Deamon::GetChar()const
 {
 	return m_type;
 }
@@ -73,12 +73,12 @@ void Pacman::init()
 	m_rec.setPosition(sf::Vector2f(1065, 250));
 }
 
-sf::RectangleShape Pacman::GetRec()
+const sf::RectangleShape Pacman::GetRec()const
 {
 	return m_rec;
 }
 
-char Pacman::GetChar()
+const char Pacman::GetChar()const
 {
 	return m_type;
 }
@@ -94,12 +94,12 @@ void Cookie::init()
 	m_rec.setPosition(sf::Vector2f(1065, 330));
 }
 
-sf::RectangleShape Cookie::GetRec()
+const sf::RectangleShape Cookie::GetRec()const
 {
 	return m_rec;
 }
 
-char Cookie::GetChar()
+const char Cookie::GetChar()const
 {
 	return m_type;
 }
@@ -115,12 +115,12 @@ void Present::init()
 	m_rec.setPosition(sf::Vector2f(1065, 410));
 }
 
-sf::RectangleShape Present::GetRec()
+const sf::RectangleShape Present::GetRec()const
 {
 	return m_rec;
 }
 
-char Present::GetChar()
+const char Present::GetChar()const
 {
 	return m_type;
 }
@@ -136,12 +136,12 @@ void Key::init()
 	m_rec.setPosition(sf::Vector2f(1065, 490));
 }
 
-sf::RectangleShape Key::GetRec()
+const sf::RectangleShape Key::GetRec()const
 {
 	return m_rec;
 }
 
-char Key::GetChar()
+const char Key::GetChar()const
 {
 	return m_type;
 }
@@ -156,12 +156,12 @@ void erase::init()
 	m_rec.setPosition(sf::Vector2f(1065, 570));
 }
 
-sf::RectangleShape erase::GetRec()
+const sf::RectangleShape erase::GetRec()const
 {
 	return m_rec;
 }
 
-char erase::GetChar()
+const char erase::GetChar()const
 {
 	return m_type;
 }
@@ -177,12 +177,12 @@ void Reset::init()
 	m_rec.setPosition(sf::Vector2f(1065, 650));
 }
 
-sf::RectangleShape Reset::GetRec()
+const sf::RectangleShape Reset::GetRec()const
 {
 	return m_rec;
 }
 
-char Reset::GetChar()
+const char Reset::GetChar()const
 {
 	return m_type;
 }
@@ -197,12 +197,12 @@ void Save::init()
 	m_rec.setPosition(sf::Vector2f(1065, 730));
 }
 
-sf::RectangleShape Save::GetRec()
+const sf::RectangleShape Save::GetRec()const
 {
 	return m_rec;
 }
 
-char Save::GetChar()
+const char Save::GetChar()const
 {
 	return m_type;
 }

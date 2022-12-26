@@ -3,11 +3,6 @@
 #include "Board.h"
 
 
-Board::~Board()
-{
-	m_RectangleMatrix.clear();
-}
-
 void Board::SetSize()
 {
 	//max m_col = 18;
@@ -21,22 +16,22 @@ void Board::SetSize()
 	}
 }
 
-int Board::GetRow()
+const int Board::GetRow()
 {
 	return m_row;
 }
 
-int Board::GetCol()
+const int Board::GetCol()
 {
 	return m_col;
 }
 
-void Board::SetRow(int row)
+void Board::SetRow(const int row)
 {
 	m_row = row;
 }
 
-void Board::SetCol(int col)
+void Board::SetCol(const int col)
 {
 	m_col = col;
 }
@@ -69,7 +64,7 @@ void Board::InitTextures()
 
 }
 
-sf::RectangleShape Board::CreateRectangle(int row, int col)
+const sf::RectangleShape Board::CreateRectangle(const int row, const int col) const
 {
 	sf::RectangleShape rec;
 
@@ -86,7 +81,7 @@ sf::RectangleShape Board::CreateRectangle(int row, int col)
 	return rec;
 }
 
-sf::RectangleShape Board::GetRec(int row, int col)
+const sf::RectangleShape Board::GetRec(const int row, const int col) const
 {
 	return m_RectangleMatrix[row][col];
 }
@@ -102,7 +97,7 @@ void Board::reset()
 	init();
 }
 
-sf::RectangleShape Board::DrawReflection(int row, int col, int type)
+const sf::RectangleShape Board::DrawReflection(const int row, const int col, const int type)
 {
 	sf::RectangleShape rec;
 
@@ -121,7 +116,7 @@ sf::RectangleShape Board::DrawReflection(int row, int col, int type)
 
 }
 
-void Board::SetRec(int row, int col, enum texture type)
+void Board::SetRec(const int row, const int col, const enum texture type)
 {
 	m_RectangleMatrix[row][col].setFillColor(sf::Color::White);
 	m_RectangleMatrix[row][col].setTexture(&m_textures[type], true);
