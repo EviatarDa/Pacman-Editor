@@ -3,17 +3,15 @@
 #include <SFML/Graphics.hpp>
 #include "Button.h"
 
-//enum texture { WALL = 0, DOOR, DEAMON, PACMAN, COOKIE, PRESENT, KEY, ERASE, RESET, SAVE };
-
 
 class ToolBar
 {
 public:
     void SetSize(int, int);
     void init();
-    sf::RectangleShape getToolBar();
-    sf::RectangleShape getButton(int);
-    char GetButtonChar(int);
+    const sf::RectangleShape getToolBar();
+    const sf::RectangleShape getButton(const int);
+    const char GetButtonChar(const int);
 
 
 

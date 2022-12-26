@@ -25,18 +25,18 @@ void ToolBar::init()
 	}
 }
 
-sf::RectangleShape ToolBar::getToolBar()
+const sf::RectangleShape ToolBar::getToolBar()
 {
 	return m_outline;
 }
 
-sf::RectangleShape ToolBar::getButton(int button)
+const sf::RectangleShape ToolBar::getButton(const int button)
 {
 
 	return m_botton[button]->GetRec();
 }
 
-char ToolBar::GetButtonChar(int button)
+const char ToolBar::GetButtonChar(const int button)
 {
 	return m_botton[button]->GetChar();
 }
