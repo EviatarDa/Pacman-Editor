@@ -3,7 +3,7 @@
 #include "Button.h"
 
 
-//button::wall functions
+//---------------Wall button-----------------
 
 void Wall::init()
 {
@@ -23,6 +23,8 @@ const char Wall::GetChar()const
 	return m_type;
 }
 
+//---------------Door button-----------------
+
 void Door::init()
 {
 	m_rec.setSize(sf::Vector2f(70.f, 70.f));
@@ -41,9 +43,7 @@ const char Door::GetChar()const
 	return m_type;
 }
 
-
-//-------
-
+//---------------Deamon button-----------------
 
 void Deamon::init()
 {
@@ -63,7 +63,7 @@ const char Deamon::GetChar()const
 	return m_type;
 }
 
-//-----
+//---------------Pacman button-----------------
 
 void Pacman::init()
 {
@@ -84,7 +84,7 @@ const char Pacman::GetChar()const
 }
 
 
-//-----------
+//---------------Cookie button-----------------
 
 void Cookie::init()
 {
@@ -104,8 +104,7 @@ const char Cookie::GetChar()const
 	return m_type;
 }
 
-//--------------
-
+//---------------Present button-----------------
 
 void Present::init()
 {
@@ -126,7 +125,7 @@ const char Present::GetChar()const
 }
 
 
-//-------
+//---------------Key button-----------------
 
 void Key::init()
 {
@@ -146,9 +145,9 @@ const char Key::GetChar()const
 	return m_type;
 }
 
-//--------
+//---------------Eraze button-----------------
 
-void erase::init()
+void Erase::init()
 {
 	m_rec.setSize(sf::Vector2f(70.f, 70.f));
 	m_texture.loadFromFile("erase.png");
@@ -156,18 +155,18 @@ void erase::init()
 	m_rec.setPosition(sf::Vector2f(1065, 570));
 }
 
-const sf::RectangleShape erase::GetRec()const
+const sf::RectangleShape Erase::GetRec()const
 {
 	return m_rec;
 }
 
-const char erase::GetChar()const
+const char Erase::GetChar()const
 {
 	return m_type;
 }
 
 
-//*********************
+//---------------Reset button-----------------
 
 void Reset::init()
 {
@@ -187,7 +186,7 @@ const char Reset::GetChar()const
 	return m_type;
 }
 
-//-----------------
+//---------------Save button-----------------
 
 void Save::init()
 {

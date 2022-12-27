@@ -9,9 +9,9 @@ void Board::SetSize()
 	//max m_row = 20;
 	std::cout << "please enter col and row: ";
 	std::cin >> m_col >> m_row;
-	while (m_col > 18 || m_row > 20)
+	while (m_col > 18 || m_row > 20 || m_col < 1 || m_row < 1) // correct the size
 	{
-		std::cout << "the maximum c/r size is 18/20 please enter again col and row: ";
+		std::cout << "the maximum c/r size is 1-18/1-20 please enter again col and row: ";
 		std::cin >> m_col >> m_row;
 	}
 }
@@ -43,9 +43,9 @@ void Board::init()
 		std::vector < sf::RectangleShape > vector_row;
 		for (int col = 0; col < m_col; ++col)
 		{
-			vector_row.push_back(CreateRectangle(row,col));
+			vector_row.push_back(CreateRectangle(row,col)); // create the corrent row
 		}
-		m_RectangleMatrix.push_back(vector_row);
+		m_RectangleMatrix.push_back(vector_row); // push the vector to the vector
 	}
 	InitTextures();
 }
@@ -61,7 +61,6 @@ void Board::InitTextures()
 	m_textures[COOKIE].loadFromFile("cookie.png");
 	m_textures[PRESENT].loadFromFile("present.png");
 	m_textures[KEY].loadFromFile("key.png");
-
 }
 
 const sf::RectangleShape Board::CreateRectangle(const int row, const int col) const
@@ -76,7 +75,7 @@ const sf::RectangleShape Board::CreateRectangle(const int row, const int col) co
 	//Style
 	rec.setOutlineColor(sf::Color::Color(102, 102, 102));
 	rec.setOutlineThickness(1.f);
-	rec.setFillColor(sf::Color::Transparent);//Color(140, 177, 217));
+	rec.setFillColor(sf::Color::Transparent);
 
 	return rec;
 }
@@ -90,15 +89,16 @@ void Board::reset()
 {
 	for (int row = 0; row < m_row; ++row)
 	{
-		m_RectangleMatrix[row].clear();
+		m_RectangleMatrix[row].clear(); //clear the vector
 	}
-	m_RectangleMatrix.clear();
+	m_RectangleMatrix.clear(); // clear the vector of vectors
 	SetSize();
 	init();
 }
 
 const sf::RectangleShape Board::DrawReflection(const int row, const int col, const int type)
 {
+	// creating a rectangle to reflect the select object at the board
 	sf::RectangleShape rec;
 
 	//Position
@@ -109,7 +109,7 @@ const sf::RectangleShape Board::DrawReflection(const int row, const int col, con
 	//Style
 	rec.setOutlineColor(sf::Color::Color(102, 102, 102));
 	rec.setOutlineThickness(0.f);
-	rec.setFillColor(sf::Color::Color(255, 255, 255, 100));
+	rec.setFillColor(sf::Color::Color(255, 255, 255, 100)); // 100 is the britness
 	rec.setTexture(&m_textures[type]);
 
 	return rec;
@@ -118,8 +118,8 @@ const sf::RectangleShape Board::DrawReflection(const int row, const int col, con
 
 void Board::SetRec(const int row, const int col, const enum texture type)
 {
+	// fill the rectangle with the texture of the object
 	m_RectangleMatrix[row][col].setFillColor(sf::Color::White);
-	m_RectangleMatrix[row][col].setTexture(&m_textures[type], true);
-	
+	m_RectangleMatrix[row][col].setTexture(&m_textures[type], true); 
 }
 

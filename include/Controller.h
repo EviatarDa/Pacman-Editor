@@ -26,7 +26,7 @@ private:
     std::ofstream m_ofile;
 
 
-    //functions
+    //friavte functions
     void init();
     void DrawBoard();
     void DrawToolBar();

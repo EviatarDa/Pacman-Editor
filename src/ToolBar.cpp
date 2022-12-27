@@ -9,7 +9,7 @@ void ToolBar::SetSize(int row, int col)
 
 void ToolBar::init()
 {
-	//position
+	//toolbar position
 	m_outline.setSize(sf::Vector2(m_row, m_col));
 	m_outline.setPosition(1000, 0);
 
@@ -27,16 +27,18 @@ void ToolBar::init()
 
 const sf::RectangleShape ToolBar::getToolBar()
 {
+	//returns toolbar rectangle
 	return m_outline;
 }
 
 const sf::RectangleShape ToolBar::getButton(const int button)
 {
-
+	//returns button rectangle
 	return m_botton[button]->GetRec();
 }
 
 const char ToolBar::GetButtonChar(const int button)
 {
+	//returns the type
 	return m_botton[button]->GetChar();
 }

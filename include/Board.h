@@ -25,9 +25,9 @@ public:
 
 
 private:
-    std::vector<std::vector<sf::RectangleShape>> m_RectangleMatrix;
-    int m_row, m_col;
-    sf::Texture m_textures[10];
+    std::vector<std::vector<sf::RectangleShape>> m_RectangleMatrix; //the board
+    int m_row, m_col; // board size
+    sf::Texture m_textures[7]; // the board textures
 
 };
 

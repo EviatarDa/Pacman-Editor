@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 
 
+//-----------abstruct Button class-----------------
+
 class Button
 {
 public:
@@ -15,6 +17,7 @@ private:
 };
 
 
+//---------------Wall button-----------------
 
 class Wall: public Button
 {
@@ -29,6 +32,7 @@ private:
 	sf::Texture m_texture;
 };
 
+//---------------Door button-----------------
 
 class Door : public Button
 {
@@ -43,6 +47,7 @@ private:
 	sf::Texture m_texture;
 };
 
+//---------------Deamon button-----------------
 
 class Deamon : public Button
 {
@@ -57,6 +62,7 @@ private:
 	sf::Texture m_texture;
 };
 
+//---------------Pacman button-----------------
 
 class Pacman : public Button
 {
@@ -71,7 +77,7 @@ private:
 	sf::Texture m_texture;
 };
 
-
+//---------------Cookie button-----------------
 
 class Cookie : public Button
 {
@@ -86,7 +92,7 @@ private:
 	sf::Texture m_texture;
 };
 
-//----
+//---------------Present button-----------------
 
 class Present : public Button
 {
@@ -101,7 +107,8 @@ private:
 	sf::Texture m_texture;
 };
 
-//----
+//---------------Key button-----------------
+
 class Key : public Button
 {
 public:
@@ -115,9 +122,9 @@ private:
 	sf::Texture m_texture;
 };
 
-//------
+//---------------Eraze button-----------------
 
-class erase : public Button
+class Erase : public Button
 {
 public:
 	void init();
@@ -130,8 +137,7 @@ private:
 	sf::Texture m_texture;
 };
 
-
-//------
+//---------------Reset button-----------------
 
 class Reset : public Button
 {
@@ -146,8 +152,7 @@ private:
 	sf::Texture m_texture;
 };
 
-
-//------
+//---------------Save button-----------------
 
 class Save : public Button
 {
