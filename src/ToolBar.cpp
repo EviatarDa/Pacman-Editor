@@ -18,7 +18,7 @@ void ToolBar::init()
 	m_outline.setOutlineThickness(4.f);
 	m_outline.setFillColor(sf::Color::Color(255, 255, 204));
 
-	//init button:
+	//init button
 	for (int button = 0; button < 10; ++button)
 	{
 		m_botton[button]->init();
